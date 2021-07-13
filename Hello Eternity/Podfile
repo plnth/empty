@@ -6,4 +6,5 @@ target 'Hello Eternity' do
   # Pods for Hello Eternity
   pod 'SnapKit'
   pod 'Moya/Core'
+  pod 'RealmSwift'
 end

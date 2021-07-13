@@ -3,7 +3,7 @@ An application for fetching Astronomy Picture Of the Day (APOD) with correspondi
 
 Implemented features: 
 - Networking;
-- Persistence (Core Data);
+- Persistence (Realm);
 - APOD search by date. 
 
 TODO: 

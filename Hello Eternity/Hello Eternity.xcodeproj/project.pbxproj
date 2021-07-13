@@ -8,11 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0607C91C2535A72C0009A476 /* StorageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0607C91B2535A72C0009A476 /* StorageDataProvider.swift */; };
-		0609A64E253DF72300E2134A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0609A64D253DF72300E2134A /* CoreDataStack.swift */; };
 		0615D30425386997007C0896 /* GroupedApodsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0615D30325386997007C0896 /* GroupedApodsRoute.swift */; };
 		0615D30725386AA0007C0896 /* GroupedApodsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0615D30625386AA0007C0896 /* GroupedApodsRouter.swift */; };
 		0615D30F25388168007C0896 /* GroupedApodsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0615D30E25388168007C0896 /* GroupedApodsModule.swift */; };
-		061D55FD253436FA003E3E03 /* HelloEternityDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 061D55FB253436FA003E3E03 /* HelloEternityDataModel.xcdatamodeld */; };
 		061D560A2534535D003E3E03 /* GroupedApodsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D56092534535D003E3E03 /* GroupedApodsContentView.swift */; };
 		061D561325345ED9003E3E03 /* SingleApodRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D561225345ED9003E3E03 /* SingleApodRoute.swift */; };
 		061D561625345F9B003E3E03 /* SingleApodModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061D561525345F9B003E3E03 /* SingleApodModule.swift */; };
@@ -63,15 +61,15 @@
 		06C257C6252CB96300ABA929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06C257C4252CB96300ABA929 /* LaunchScreen.storyboard */; };
 		06DBC44F2535BF38009818B8 /* MediaFilesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DBC44E2535BF38009818B8 /* MediaFilesProvider.swift */; };
 		35F61F992C83059E5CAC5B10 /* Pods_Hello_Eternity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFDA3CBDAE76FA2AA9388A5 /* Pods_Hello_Eternity.framework */; };
+		F7111E2D268C7D6F00872873 /* Apod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7111E2C268C7D6F00872873 /* Apod.swift */; };
+		F7111E2F268C7E0B00872873 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7111E2E268C7E0B00872873 /* Media.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0607C91B2535A72C0009A476 /* StorageDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataProvider.swift; sourceTree = "<group>"; };
-		0609A64D253DF72300E2134A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0615D30325386997007C0896 /* GroupedApodsRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedApodsRoute.swift; sourceTree = "<group>"; };
 		0615D30625386AA0007C0896 /* GroupedApodsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedApodsRouter.swift; sourceTree = "<group>"; };
 		0615D30E25388168007C0896 /* GroupedApodsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedApodsModule.swift; sourceTree = "<group>"; };
-		061D55FC253436FA003E3E03 /* HelloEternityDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HelloEternityDataModel.xcdatamodel; sourceTree = "<group>"; };
 		061D56092534535D003E3E03 /* GroupedApodsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedApodsContentView.swift; sourceTree = "<group>"; };
 		061D561225345ED9003E3E03 /* SingleApodRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleApodRoute.swift; sourceTree = "<group>"; };
 		061D561525345F9B003E3E03 /* SingleApodModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleApodModule.swift; sourceTree = "<group>"; };
@@ -126,6 +124,8 @@
 		6188DB9552473FE9046D2282 /* Pods-Hello Eternity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello Eternity.release.xcconfig"; path = "Target Support Files/Pods-Hello Eternity/Pods-Hello Eternity.release.xcconfig"; sourceTree = "<group>"; };
 		ADFDA3CBDAE76FA2AA9388A5 /* Pods_Hello_Eternity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hello_Eternity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C044FA886559E2D9E1BAC494 /* Pods-Hello Eternity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hello Eternity.debug.xcconfig"; path = "Target Support Files/Pods-Hello Eternity/Pods-Hello Eternity.debug.xcconfig"; sourceTree = "<group>"; };
+		F7111E2C268C7D6F00872873 /* Apod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apod.swift; sourceTree = "<group>"; };
+		F7111E2E268C7E0B00872873 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,14 +148,6 @@
 				06DBC44E2535BF38009818B8 /* MediaFilesProvider.swift */,
 			);
 			path = Providers;
-			sourceTree = "<group>";
-		};
-		0609A650253DF9D500E2134A /* CoreDataStack */ = {
-			isa = PBXGroup;
-			children = (
-				0609A64D253DF72300E2134A /* CoreDataStack.swift */,
-			);
-			path = CoreDataStack;
 			sourceTree = "<group>";
 		};
 		0615D3222538838C007C0896 /* Routing */ = {
@@ -273,7 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				062A3B63253072DB00B2A5D9 /* ApodDataFromAPI.swift */,
-				061D55FB253436FA003E3E03 /* HelloEternityDataModel.xcdatamodeld */,
+				F7111E2C268C7D6F00872873 /* Apod.swift */,
+				F7111E2E268C7E0B00872873 /* Media.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -369,7 +362,6 @@
 		067EB88E252F480A00230739 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0609A650253DF9D500E2134A /* CoreDataStack */,
 				0607C91A2535A7120009A476 /* Providers */,
 				062A3B572530716D00B2A5D9 /* Networking */,
 			);
@@ -596,6 +588,7 @@
 				0671D20E252F080A0087EC9F /* MainRouter.swift in Sources */,
 				06A4D14B252F117B00543AB4 /* ApodRouter.swift in Sources */,
 				0615D30F25388168007C0896 /* GroupedApodsModule.swift in Sources */,
+				F7111E2F268C7E0B00872873 /* Media.swift in Sources */,
 				067EB889252F43C500230739 /* Strings.swift in Sources */,
 				062A3B64253072DB00B2A5D9 /* ApodDataFromAPI.swift in Sources */,
 				062A3B592530719200B2A5D9 /* API.swift in Sources */,
@@ -607,6 +600,7 @@
 				0615D30725386AA0007C0896 /* GroupedApodsRouter.swift in Sources */,
 				06A4D14E252F119800543AB4 /* ApodViewController.swift in Sources */,
 				0671D1FE252EFB890087EC9F /* Animator.swift in Sources */,
+				F7111E2D268C7D6F00872873 /* Apod.swift in Sources */,
 				067EB8AA252F4DD700230739 /* SingleApodViewController.swift in Sources */,
 				0629D48325418C7300C65D3A /* Popup.swift in Sources */,
 				067EB88B252F43C500230739 /* Colors.swift in Sources */,
@@ -619,9 +613,7 @@
 				0671D1FB252EFB800087EC9F /* Router.swift in Sources */,
 				06C257BE252CB95F00ABA929 /* MainViewController.swift in Sources */,
 				0629D47F254172C900C65D3A /* DatePickerToolBar.swift in Sources */,
-				0609A64E253DF72300E2134A /* CoreDataStack.swift in Sources */,
 				0629D4762541727000C65D3A /* DatePickerViewDelegate.swift in Sources */,
-				061D55FD253436FA003E3E03 /* HelloEternityDataModel.xcdatamodeld in Sources */,
 				067E4341252F09A00033F6E2 /* MainViewModel.swift in Sources */,
 				067E4345252F0A610033F6E2 /* ApodRoute.swift in Sources */,
 				061D560A2534535D003E3E03 /* GroupedApodsContentView.swift in Sources */,
@@ -838,19 +830,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		061D55FB253436FA003E3E03 /* HelloEternityDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				061D55FC253436FA003E3E03 /* HelloEternityDataModel.xcdatamodel */,
-			);
-			currentVersion = 061D55FC253436FA003E3E03 /* HelloEternityDataModel.xcdatamodel */;
-			path = HelloEternityDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 06C257B0252CB95E00ABA929 /* Project object */;
 }

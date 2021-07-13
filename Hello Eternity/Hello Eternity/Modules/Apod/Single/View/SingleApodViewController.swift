@@ -124,13 +124,13 @@ class SingleApodViewController: UIViewController {
     private func createContentView(with apodData: Apod) {
         self.apodContentView = SingleApodContentView(
             frame: UIScreen.main.bounds,
-            title: apodData.title ?? "",
-            date: apodData.date ?? "",
-            explanation: apodData.explanation ?? "",
+            title: apodData.title ,
+            date: apodData.date ,
+            explanation: apodData.explanation ,
             configuration: self.viewModel.configuration
         )
         
-        self.setupImageFromURL(apodData.url!) //TODO
+        self.setupImageFromURL(apodData.url)
         
         if let contentView = self.apodContentView {
             DispatchQueue.main.async { [weak self] in

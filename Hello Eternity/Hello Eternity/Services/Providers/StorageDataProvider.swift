@@ -1,5 +1,5 @@
 import UIKit
-import CoreData
+import RealmSwift
 
 enum StorageProviderError: Error {
     case fetchFailed
@@ -10,55 +10,34 @@ final class StorageDataProvider {
     
     static let shared: StorageDataProvider = StorageDataProvider()
     
-    private let context = CoreDataStack(modelName: "HelloEternityDataModel").managedContext
-    
-    private lazy var childContext: NSManagedObjectContext = {
-        let childContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
-        childContext.parent = self.context
-        return childContext
-    }()
-    
     private let mediaFilesProvider = MediaFilesProvider.default
     
     func fetchStoredApods() throws -> [Apod] {
         
         do {
-            let request = Apod.fetchRequest() as NSFetchRequest
-            let compareSelector = #selector(NSString.localizedStandardCompare(_:))
-            request.sortDescriptors = [
-                NSSortDescriptor(
-                    key: #keyPath(Apod.title),
-                    ascending: true,
-                    selector: compareSelector
-                )
-            ]
-            let savedApods = try self.context.fetch(request)
-            
-            return savedApods
+            let realm = try Realm()
+            let apods = realm.objects(Apod.self).sorted(byKeyPath: "title")
+            return apods.map { $0 }
         } catch {
             throw StorageProviderError.fetchFailed
         }
     }
     
     func newApodItem() throws -> Apod {
-        
-        return Apod(context: self.childContext)
+        return Apod()
     }
     
     func newMediaItem() throws -> Media {
-        
-        return Media(context: self.childContext)
+        return Media()
     }
     
     func fetchApodByTitle(_ title: String) throws -> Apod? {
         
-        let request = Apod.fetchRequest() as NSFetchRequest
         let predicate = NSPredicate(format: "title CONTAINS %@", title)
-        request.predicate = predicate
         
         do {
-            let apod = try self.context.fetch(request).first
-            return apod
+            let realm = try Realm()
+            return realm.objects(Apod.self).filter(predicate).first
         } catch {
             throw StorageProviderError.fetchFailed
         }
@@ -66,21 +45,19 @@ final class StorageDataProvider {
     
     func saveApod(_ apod: Apod, withMedia media: Media, withData data: Data) {
         let path = self.saveMediaData(media, data)
-        apod.media?.filePath = path
-        do {
-            try self.childContext.save()
-            try self.saveContext()
-        } catch {
-            debugPrint(error)
+        apod.media?.filePath = path ?? ""
+        
+        guard let realm = try? Realm() else { return }
+        let item = apod
+        item.media = media
+        try? realm.write {
+            realm.add(item)
         }
     }
     
     func saveMediaData(_ media: Media, _ data: Data) -> String? {
-        if let title = media.title {
-            let path = self.mediaFilesProvider.saveMediaWithPath(mediaData: data, with: title)
-            return path
-        }
-        return nil
+        let path = self.mediaFilesProvider.saveMediaWithPath(mediaData: data, with: media.title)
+        return path
     }
     
     func getMediaFileDataForTitle(_ title: String) -> Data? {
@@ -88,15 +65,10 @@ final class StorageDataProvider {
     }
     
     func deleteApod(_ apod: Apod) {
-        self.context.delete(apod)
-        try? self.saveContext()
-    }
-    
-    func saveContext() throws {
-        do {
-            try self.context.save()
-        } catch {
-            throw StorageProviderError.savingFailed
+        if let realm = try? Realm() {
+            try? realm.write {
+                realm.delete(apod)
+            }
         }
     }
 }

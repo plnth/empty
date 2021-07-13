@@ -1,6 +1,5 @@
 import Foundation
 import Moya
-import CoreData
 
 class SingleApodViewModel {
     
@@ -44,10 +43,10 @@ class SingleApodViewModel {
                     apodItem.url = apodFromAPI.url
                     
                     let media = try self.storageProvider.newMediaItem()
-                    if let url = apodItem.url {
-                        let title = url.split { $0 == "/" }.last.map(String.init)
-                        media.title = title
-                    }
+                    let url = apodItem.url
+                    let title = url.split { $0 == "/" }.last.map(String.init)
+                    media.title = title ?? ""
+                    
                     media.url = apodItem.url
                     
                     apodItem.media = media

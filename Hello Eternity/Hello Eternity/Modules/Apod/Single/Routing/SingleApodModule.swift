@@ -1,7 +1,7 @@
 import Foundation
 
-protocol SingleApodModuleInput: class {}
-protocol SingleApodModuleOutput: class {}
+protocol SingleApodModuleInput: AnyObject {}
+protocol SingleApodModuleOutput: AnyObject {}
 
 final class SingleApodModule {
     

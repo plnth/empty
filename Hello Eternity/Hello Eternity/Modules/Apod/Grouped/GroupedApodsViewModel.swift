@@ -1,5 +1,3 @@
-import CoreData
-
 class GroupedApodsViewModel {
     
     private let router: GroupedApodsRouter

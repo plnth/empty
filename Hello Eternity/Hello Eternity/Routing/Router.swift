@@ -1,10 +1,10 @@
 import UIKit
 
-protocol Closable: class {
+protocol Closable: AnyObject {
     func close()
 }
 
-protocol RouterProtocol: class {
+protocol RouterProtocol: AnyObject {
     associatedtype V: UIViewController
     var viewController: V? { get }
     

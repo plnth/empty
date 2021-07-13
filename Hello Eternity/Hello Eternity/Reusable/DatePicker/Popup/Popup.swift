@@ -1,6 +1,6 @@
 import UIKit
 
-protocol PopupDelegate: class {
+protocol PopupDelegate: AnyObject {
     var popupView: UIView { get }
     var blurEffectStyle: UIBlurEffect.Style { get }
     var initialScaleAmount: CGFloat { get }

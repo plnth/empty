@@ -1,6 +1,6 @@
 import UIKit
 
-protocol Transition: class {
+protocol Transition: AnyObject {
     var viewController: UIViewController? { get set }
     
     func open(_ viewController: UIViewController)
