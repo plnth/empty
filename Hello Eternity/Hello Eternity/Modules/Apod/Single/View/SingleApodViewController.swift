@@ -130,7 +130,10 @@ class SingleApodViewController: UIViewController {
             configuration: self.viewModel.configuration
         )
         
-        self.setupImageFromURL(apodData.url!) //TODO
+        self.loadImageFromURL(apodData.url!, completion: { [weak self] image in
+            self?.apodContentView?.updateImage(with: image)
+            self?.didLoadMedia = true
+        }) //TODO
         
         if let contentView = self.apodContentView {
             DispatchQueue.main.async { [weak self] in
@@ -151,17 +154,18 @@ class SingleApodViewController: UIViewController {
         case .storage:
             self.apodContentView?.saveOrDeleteButton.addTarget(self, action: #selector(self.onDeleteApod), for: .touchUpInside)
         }
+        
+        self.apodContentView?.saveHDImageButton.addTarget(self, action: #selector(self.onSaveToGallery), for: .touchUpInside)
     }
     
-    private func setupImageFromURL(_ url: String) {
+    private func loadImageFromURL(_ url: String, completion: @escaping ((UIImage) -> Void)) {
         
-        self.viewModel.fetchApodMedia(fromURL: url) { [weak self] result in
+        self.viewModel.fetchApodMedia(fromURL: url) { result in
             switch result {
             case .success(let imageData):
                 if let image = UIImage(data: imageData) {
                     DispatchQueue.main.async {
-                        self?.apodContentView?.updateImage(with: image)
-                        self?.didLoadMedia = true
+                        completion(image)
                     }
                 }
             case .failure(let error):
@@ -180,6 +184,14 @@ class SingleApodViewController: UIViewController {
     
     @objc private func onSearchForMoreApods() {
         self.viewModel.onSearchForMoreApods(configuration: .search)
+    }
+    
+    @objc private func onSaveToGallery() {
+        guard let hdurl = self.viewModel.fetchedApod?.hdurl else { return }
+        
+        self.loadImageFromURL(hdurl, completion: { [weak self] image in
+            UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
+        })
     }
 }
 
