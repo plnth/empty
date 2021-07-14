@@ -44,10 +44,16 @@ final class StorageDataProvider {
     }
     
     func saveApod(_ apod: Apod, withMedia media: Media, withData data: Data) {
+        
+        let predicate = NSPredicate(format: "title CONTAINS %@", apod.title)
+        
+        guard let realm = try? Realm(),
+              realm.objects(Apod.self).filter(predicate).isEmpty
+              else { return }
+        
         let path = self.saveMediaData(media, data)
         apod.media?.filePath = path ?? ""
         
-        guard let realm = try? Realm() else { return }
         let item = apod
         item.media = media
         try? realm.write {
